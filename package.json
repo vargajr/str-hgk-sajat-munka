@@ -1,0 +1,27 @@
+{
+  "name": "str-hgk-sajat-munka",
+  "version": "1.0.0",
+  "description": "training360 NodeJS lecke feladatmegoldás",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vargajr/str-hgk-sajat-munka.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vargajr/str-hgk-sajat-munka/issues"
+  },
+  "homepage": "https://github.com/vargajr/str-hgk-sajat-munka#readme",
+  "devDependencies": {
+    "eslint": "^7.28.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0"
+  }
+}
