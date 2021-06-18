@@ -23,9 +23,9 @@ const compressFile = (fileToArchive, copiedFile, zippedFile) => {
     .pipe(compressedFile)
 
   compressedFile.on('error', errorLogger)
-  compressedFile.on('finish', successLogger('File complressed successfully.'))
-  compressedFile.on('finish', deleteFile(fileToArchive))
-  compressedFile.on('finish', deleteFile(copiedFile))
+  compressedFile.on('finish', () => successLogger('File complressed successfully.'))
+  compressedFile.on('finish', () => deleteFile(fileToArchive))
+  compressedFile.on('finish', () => deleteFile(copiedFile))
 }
 
 const copyFile = (fileToArchive, copiedFile, zippedFile) => {
@@ -34,8 +34,8 @@ const copyFile = (fileToArchive, copiedFile, zippedFile) => {
 
   const writeableStream = createWriteStream(copiedFile)
   writeableStream.on('error', errorLogger)
-  writeableStream.on('finish', successLogger('File copied successfully.'))
-  writeableStream.on('finish', compressFile(fileToArchive, copiedFile, zippedFile))
+  writeableStream.on('finish', () => successLogger('File copied successfully.'))
+  writeableStream.on('finish', () => compressFile(fileToArchive, copiedFile, zippedFile))
 
   readableStream.pipe(writeableStream)
 }
