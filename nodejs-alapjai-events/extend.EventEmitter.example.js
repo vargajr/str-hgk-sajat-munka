@@ -5,13 +5,7 @@ class Logger extends EventEmitter {
     super()
     this.on('error', this.error)
     this.on('success', this.success)
-    // this.init()
   }
-
-  /* init () {
-    this.emit('error', 'belső hiba')
-    this.emit('success', 'belső siker')
-  } */
 
   error (msg) { console.log('\x1b[31m%s\x1b[0m', msg) }
   success (msg) { console.log('\x1b[32m%s\x1b[0m', msg) }
@@ -29,14 +23,14 @@ class FileArchiver extends Logger {
     this.on('trigger', this.customMethod)
   }
 
-  customMethod () {
-    console.log('Ez egy custom event kezelő callback-je')
+  customMethod (par1, par2, par3) {
+    console.log(`Ez egy custom event kezelő callback-je. Par1: ${par1}, par2: ${par2}, par3: ${par3}.`)
   }
 }
 
 const fileArchiver = new FileArchiver()
 
-fileArchiver.emit('trigger')
+fileArchiver.emit('trigger', 111, 222, 333)
 
 fileArchiver.emit('error', 'Archiver hiba')
 
