@@ -81,7 +81,6 @@ db.movies.find({releaseYear: {$lt: 1970}})
 db.movies.find({releaseYear: {$lte: 1977}})
 db.movies.find({releaseYear: {$gt: 1987}})
 db.movies.find({releaseYear: {$gte: 1987}})
-
 ```
 #
 7. Kérdezz le két év között készült filmeket! (Próbáld ki $and operátorral is!)
