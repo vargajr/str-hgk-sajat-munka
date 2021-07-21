@@ -1,0 +1,52 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Egészségügyi szuri tár (ESZT)
+  description: nodejs-api feladat - Készíts egy egyszerű, működő ESZT (Egészségügyi Szuri Tár) API alkalmazást, amellyel nyilvántarthatjuk, melyik személy milyen védőoltást kapott az országban.
+servers:
+  - url: http://localhost:3000
+paths:
+  /person/count:
+    get:
+      description: Returns the number of vaccinated people
+      responses:
+        '200':
+          description: Count of vaccinated people returned successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Count'
+  /person/vaccinated:
+    get:
+      description: Returns a list of vaccinated people
+      responses:
+        '200':
+          description: List of vaccinated people returned succesfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Person'
+components:
+  schemas:
+    Count:
+      type: object
+      required:
+        - vaccinatedCount
+      properties:
+        vaccinatedCount:
+          type: number
+    Person:
+      type: object
+      required:
+        - firstName
+        - lastName
+        - vaccine
+      properties:
+        firstName:
+          type: string
+        lastName:
+          type: string
+        vaccine:
+          type: string
