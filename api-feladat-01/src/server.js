@@ -11,4 +11,10 @@ app.use('/person', require('./entities/person/person.router'));
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
+app.use((err, req, res, next) => {
+  res.status(404);
+  res.json('An error occured. Please contact system administrators.');
+  next();
+});
+
 module.exports = app;
