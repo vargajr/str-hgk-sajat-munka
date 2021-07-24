@@ -8,6 +8,38 @@ Egészítsd ki az egyszerű, működő ESZT (Egészségügyi Szuri Tár) API alk
 
 Minden elkészült végpontot tesztelj böngésző segítségével!
 
+## Tesztelés:
+### POST /person
+```js
+fetch('http://localhost:3000/person',{
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({firstName: 'Lee', lastName:'La', vaccine:''})
+})
+.then(r => r.json())
+.then(d => console.log(d))
+```
+### POST /person
+```js
+fetch('http://localhost:3000/person/2/vaccine-7',{
+  method: 'PUT',
+  headers: {
+    'Content-Type': 'application/json'
+  }
+})
+.then(r => r.json())
+.then(d => console.log(d))
+```
+### DELETE /person/:vaccine
+```js
+fetch('http://localhost:3000/person/vaccine-7',{
+  method: 'DELETE'
+}).then(r => r.json())
+.then(d => console.log(d))
+```
+
 # 1. Gyakorlófeladat
 
 Készíts egy egyszerű, működő ESZT (Egészségügyi Szuri Tár) API alkalmazást, amellyel nyilvántarthatjuk, melyik személy milyen védőoltást kapott az országban.

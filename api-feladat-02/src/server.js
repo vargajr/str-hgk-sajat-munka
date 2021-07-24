@@ -7,6 +7,7 @@ const swaggerDocument = YAML.load('./docs/swagger.yaml');
 const app = express();
 
 app.use(express.static('public'));
+app.use(express.json());
 app.use('/person', require('./entities/person/person.router'));
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));

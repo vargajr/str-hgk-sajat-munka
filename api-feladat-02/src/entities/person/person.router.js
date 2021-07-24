@@ -9,4 +9,10 @@ router.get('/vaccinated', (req, res, next) => personController.getVaccinedPeople
 
 router.get('/:id/vaccinated', (req, res, next) => personController.personIsVaccinated(req, res, next));
 
+router.post('/', (req, res, next) => personController.create(req, res, next));
+
+router.put('/:id/:vaccine', (req, res, next) => personController.modifyVaccine(req, res, next));
+
+router.delete('/:vaccine', (req, res, next) => personController.eraseVaccinatedPeople(req, res, next));
+
 module.exports = router;

@@ -1,25 +1,49 @@
-const { readFile } = require('fs').promises;
 const { join } = require('path');
+const dbHandler = require('../../../data/database.handler');
 
-const filePath = join(__dirname, '..', '..', '..', 'data', 'data.json');
+const mockFilePath = join(__dirname, 'mock.data.json');
 
-const readData = (collection) => new Promise((res, rej) => {
-  readFile(filePath, { encoding: 'utf8' })
-    .then((filecontent) => {
-      if (!filecontent) {
-        return rej(new Error('The database is empty.'));
-      }
-      const database = JSON.parse(filecontent);
-      if (!database[collection]) {
-        return rej(new Error(`In the database there is no ${collection} collection.`));
-      }
-      return res(database[collection]);
-    })
-    .catch((err) => rej(err));
-});
+module.exports.getAll = () => dbHandler.readData('people', mockFilePath)
+  .then((personArray) => Promise.resolve(personArray))
+  .catch((err) => Promise.reject(err));
 
-module.exports.getAll = () => new Promise((res, rej) => {
-  readData('people')
-    .then((people) => res(people))
-    .catch((err) => rej(err));
-});
+module.exports.getOneById = (id) => this.getAll()
+  .then((personArray) => {
+    const person = personArray.find((p) => p.id === Number(id));
+    if (!person) {
+      return Promise.reject(new Error(`No person was found with id: ${id}`));
+    }
+    return Promise.resolve(person);
+  })
+  .catch((err) => Promise.reject(err));
+
+module.exports.create = (newPersonData) => this.getAll()
+  .then((personArray) => {
+    const id = personArray.sort((a, b) => a.id - b.id)[personArray.length - 1].id + 1;
+    const newPerson = { id, ...newPersonData };
+    personArray.push(newPerson);
+    return dbHandler.writeData('people', personArray)
+      .then(() => Promise.resolve(newPerson))
+      .catch((err) => Promise.reject(err));
+  })
+  .catch((err) => Promise.reject(err));
+
+module.exports.update = (update) => this.getAll()
+  .then((personArray) => {
+    const { vaccine } = update;
+    const newArray = personArray.map((p) => (p.id === Number(update.id) ? { ...p, vaccine } : p));
+    const updatedPerson = newArray.find((p) => p.id === Number(update.id));
+    return dbHandler.writeData('people', newArray)
+      .then(() => Promise.resolve(updatedPerson))
+      .catch((err) => Promise.reject(err));
+  })
+  .catch((err) => Promise.reject(err));
+
+module.exports.delete = (id) => this.getAll()
+  .then((personArray) => {
+    const newArray = personArray.filter((p) => p.id !== Number(id));
+    return dbHandler.writeData('people', newArray)
+      .then(() => Promise.resolve(true))
+      .catch((err) => Promise.reject(err));
+  })
+  .catch((err) => Promise.reject(err));
