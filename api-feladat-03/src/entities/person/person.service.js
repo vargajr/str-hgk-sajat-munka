@@ -46,6 +46,9 @@ module.exports.update = (update) => this.getAll()
 
 module.exports.delete = (id) => this.getAll()
   .then((personArray) => {
+    if (personArray.findIndex((p) => p.id === Number(id)) === -1) {
+      return Promise.reject(new Error(`No person was found with id: ${id}`));
+    }
     const newArray = personArray.filter((p) => p.id !== Number(id));
     return dbHandler.writeData('people', newArray)
       .then(() => Promise.resolve(true))

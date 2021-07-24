@@ -21,4 +21,6 @@ router.put('/', (req, res, next) => personController.update(req, res, next));
 
 router.delete('/:vaccine', (req, res, next) => personController.eraseVaccinatedPeople(req, res, next));
 
+router.delete('/', (req, res, next) => personController.delete(req, res, next));
+
 module.exports = router;

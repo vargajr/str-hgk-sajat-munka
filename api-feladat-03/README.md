@@ -71,6 +71,17 @@ fetch('http://localhost:3000/person/vaccine-7',{
 }).then(r => r.json())
 .then(d => console.log(d))
 ```
+### DELETE /person
+```js
+fetch('http://localhost:3000/person/',{
+  method: 'DELETE',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({id: 1})
+}).then(r => r.json())
+.then(d => console.log(d))
+```
 
 # 1. Gyakorlófeladat
 

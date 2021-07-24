@@ -150,3 +150,19 @@ exports.eraseVaccinatedPeople = (req, res, next) => {
       next(new createError.InternalServerError('An error occured. Please contact system administrators.'));
     });
 };
+
+exports.delete = (req, res, next) => {
+  const { id } = req.body;
+  personService.delete(id)
+    .then(() => {
+      res.status(202);
+      res.json('Person deleded.');
+    })
+    .catch((err) => {
+      console.log(err.message);
+      if (err.message.includes('No person was found with id:')) {
+        return next(new createError.NotFound(err.message));
+      }
+      return next(new createError.InternalServerError('An error occured. Please contact system administrators.'));
+    });
+};
