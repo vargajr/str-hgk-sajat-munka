@@ -1,0 +1,7 @@
+{
+    "database": {
+        "username": "NodeUser",
+        "pwd": "zcoV1RIZx6mNfVKe",
+        "host": "cluster0.yofa0.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+    }
+}

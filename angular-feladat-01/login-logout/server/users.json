@@ -1,0 +1,68 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "first_name": "Charlie",
+            "last_name": "Firpo",
+            "email": "charlie@merriam-webster.com",
+            "password": "$2a$10$JMubGsN6FUEB/90czcasHeCBmaTM9YzzITW.x8PXVQ51yUtM8JnVm",
+            "role": 3
+          },
+          {
+            "id": 2,
+            "first_name": "Finn&Jake",
+            "last_name": "Upjohn",
+            "email": "fupjohn1@paypal.com",
+            "password": "$2a$10$/9oE96sHHNbFQtSJ4tTgduFDp/Q8CW15T3bXm.kFzi.pdeiVRLob6",
+            "role": 2
+          },
+          {
+            "id": 3,
+            "first_name": "Nickey",
+            "last_name": "Tyt",
+            "email": "ntyt2@psu.edu",
+            "password": "$2a$10$eZMp/S6cJtgOTy94BKQaAun/m.f3eIu8smIpIi2tvQUgGAiwxfDsy",
+            "role": 1
+          },
+          {
+            "id": 4,
+            "first_name": "Goldia",
+            "last_name": "Bloodworthe",
+            "email": "gbloodworthe3@mail.ru",
+            "password": "$2a$10$XCaD5qH6cy8b2Zs6.X21dON.WZXC.4uYI6UuGhyqSWzMSyGJ9fQQ6",
+            "role": 3
+          },
+          {
+            "id": 5,
+            "first_name": "Berti",
+            "last_name": "Farthing",
+            "email": "bfarthing4@nymag.com",
+            "password": "$2a$10$zl6J2sTRSOemUNRZ7Iq3DuxNZwCyi4AAOp6jB2V/U7bEM7OlJVqF2",
+            "role": 2
+          },
+          {
+            "id": 6,
+            "first_name": "Elihu",
+            "last_name": "Lammie",
+            "email": "elammie5@google.co.uk",
+            "password": "$2a$10$Yik3e5FNRzoeSkmaHXsOwu/OY34LzVLK.qikjnwuSELthvRYY2PIK",
+            "role": 1
+          },
+          {
+            "id": 7,
+            "first_name": "Misty",
+            "last_name": "Comfort",
+            "email": "mcomfort6@github.io",
+            "password": "$2a$10$ZrOZ40dYWInLc0zpQZ6Cg.CBqjuTRynd6ZaD8bJiEAYoeAnilCI6W",
+            "role": 2
+          },
+          {
+            "id": 8,
+            "first_name": "Shana",
+            "last_name": "Swyne",
+            "email": "sswyne7@latimes.com",
+            "password": "$2a$10$gNlsQbADZkQWP4KdP4Y8dOUPnLApUf81vyQe6Cw8rIxPgJmrsODtq",
+            "role": 3
+          }
+    ]
+}
